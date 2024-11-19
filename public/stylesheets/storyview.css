@@ -1,0 +1,137 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Story View Container */
+.story-view {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar with Profile and Close Button */
+.story-navbar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.username {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 18px;
+}
+
+.close-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Story Image or Video */
+.story-content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin: 80px 0;
+}
+
+.story-content img {
+   width: 27vw;
+   border-radius: 15px;
+   margin-top: 40px;
+   height: 700px;
+}
+
+/* Navigation Arrows */
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Timer Bar */
+.timer-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #4e9cdb;
+    animation: timer 10s linear infinite;
+}
+
+@keyframes timer {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+
+@media (max-width:600px) {
+    .story-content img {
+        width: 100vw;
+        height: 600px;
+        border-radius: 15px;
+        margin: 10px 0;
+     }
+     
+}

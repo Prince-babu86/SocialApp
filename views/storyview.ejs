@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Story View</title>
+    <link rel="stylesheet" href="/stylesheets/storyview.css">
+</head>
+<body>
+
+    <!-- Story View Container -->
+    <div class="story-view">
+        <!-- Navigation Bar with Profile Image -->
+        <div class="story-navbar">
+            <div class="profile-pic">
+                <img src="<%= Story.user.image %>" alt="Profile Image">
+            </div>
+            <div class="username">
+                <span><%= Story.user.username %></span>
+            </div>
+            <!-- <a href="/feed" class="close-btn" onclick="closeStory()">X</a> -->
+        </div>
+
+        <!-- Story Content (Image or Video) -->
+        <div class="story-content">
+            <img id="storyImage" src="<%= Story.storyImage %>" alt="Story Image">
+        </div>
+
+        <!-- Navigation Arrows -->
+        <!-- <div class="navigation">
+            <button class="nav-btn prev" onclick="prevStory()">❮</button>
+            <button class="nav-btn next" onclick="nextStory()">❯</button>
+        </div> -->
+
+        <!-- Timer Bar -->
+        <div class="timer-bar">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>

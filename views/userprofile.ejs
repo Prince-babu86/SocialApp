@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Profile Banner Section -->
+    <div class="profile-banner">
+      <div class="banner-content">
+        <img src="<%= user.image %>" alt="Profile Image" class="profile-img" />
+        <h2 class="username"><%= user.username %></h2>
+      </div>
+    </div>
+
+
+    <div class="story-section">
+      <% user.story.reverse().forEach(function(elem){%>
+        <a href="/Story/<%= elem._id %>" class="story">
+         <div class="story-image">
+          <img
+          src="<%= elem.storyImage %>"
+          alt="Story"
+          class="story-img"
+        />
+         </div>
+         <h4><%= elem.storyTitle %></h4>
+        </a>
+     <% })  %>
+    
+    </div>
+
+
+
+    <div class="posts">
+      <% user.posts.reverse().forEach(function(elem){%>
+      <div class="post">
+        <div class="post-header">
+          <img src="<%= user.image %>" alt="User Avatar" class="post-avatar" />
+          <h3 class="post-username"><%= user.username %></h3>
+        </div>
+        <img src="<%= elem.postimage %>" alt="Post Image" class="post-img" />
+        <h4 class="post-title"><%= elem.title %></h4>
+        <p class="post-description"><%=elem.description %></p>
+        <div class="post-footer">
+          <span class="likes">❤️ 120 Likes</span>
+          <!-- <a id="delete" href="/delete/<%= elem._id %>">Delete</a> -->
+        </div>
+      </div>
+      <%}) %>
+
+      <!-- More posts can go here -->
+    </div>
+  
+    <a class="back-home-btn" href="/feed"
+      ><i class="fa-solid fa-arrow-left"></i>
+    </a>
+  </body>
+</html>

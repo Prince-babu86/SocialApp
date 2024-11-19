@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-Style Post Card</title>
+    <link rel="stylesheet" href="/stylesheets/story.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="/stylesheets/menu.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <!-- Post Image -->
+           
+                <img class="post-image" src="<%=story.postimage %>" alt="Post Image">
+          
+
+            <!-- Card Content -->
+            <div class="card-content">
+                <!-- User Info -->
+                <div class="user-info">
+                    <img class="user-profile-image" src="<%=story.user.image %>" alt="User Profile Image">
+                    <div class="user-details">
+                        <h3 class="username"><%=story.user.username %></h3>
+                        <p class="post-title"><%= story.title %></p>
+                    </div>
+                </div>
+
+                <!-- Post Description -->
+                <p class="post-description">
+                   <%= story.description%>
+                </p>
+
+                <!-- Comment List -->
+                <div class="comment-list">
+                    <div class="comment">
+                        <img class="comment-profile-image" src="https://i.pinimg.com/736x/e4/81/f0/e481f0da03099242afbf9f1dd79156cb.jpg" alt="Commenter Profile Image">
+                        <div class="comment-text">
+                            <span class="comment-username">JaneDoe</span>
+                            <p class="comment-body">Great post! Really enjoyed reading it.</p>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <!-- Comment Input -->
+             <form action="/comment" method="post">
+                <div class="comment-input">
+                    <img class="user-profile-image" src="<%= user.image %>" alt="User Profile Image">
+                    <input name="comment" type="text" placeholder="Add a comment..." />
+                </div>
+             </form>
+            </div>
+        </div>
+    </div>
+  <a href="/feed"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="posts">
+        <% post.sort(()=> Math.random() - 0.5).forEach(function(elem){%>
+        <a href="/pin/<%= elem._id %>" class="post">
+          <div class="post-header">
+            <img src="<%= elem.user.image %>" alt="User Avatar" class="post-avatar" />
+            <h3 class="post-username"><%= elem.user.username %></h3>
+          </div>
+          <img src="<%= elem.postimage %>" alt="Post Image" class="post-img" />
+          <h4 class="post-title"><%= elem.title %></h4>
+          <p class="post-description"><%=elem.description %></p>
+          <div class="post-footer">
+            <span class="likes">❤️ 120 Likes</span>
+          </div>
+        </a>
+        <%}) %>
+  
+        <!-- More posts can go here -->
+      </div>
+
+
+
+      <div class="bottom-nav">
+        <a href="/feed" class="nav-item">
+          <i class="fas fa-home"></i>
+        </a>
+    
+        <a href="#" class="nav-item">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="/create" class="nav-item">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+    
+       
+       
+        <a href="/Saved" class="nav-item">
+          <i class="fas fa-bookmark"></i>
+        </a>
+    
+        <a href="/profile" class="nav-item">
+          <img class="fa-user-circle" src="<%= user.image %>" alt="">
+        </a>
+        
+      </div>
+
+</body>
+</html>

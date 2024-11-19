@@ -1,0 +1,56 @@
+/* Bottom Navigation Bar Styling */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
+  border-radius: 50px;
+}
+
+/* Individual Navigation Items */
+.nav-item {
+  text-align: center;
+  color: white;
+  font-size: 30px; /* Adjust size of icons */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* .nav-item:hover {
+  background-color: #555;
+  border-radius: 50%;
+  padding: 10px;
+}
+ */
+.nav-item i {
+  font-size: 25px; /* Size of the icons */
+  color: white;
+}
+
+.fa-user-circle{
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+/* Active state for the selected menu item (optional) */
+.nav-item.active {
+  color: #ff6f61; /* Active color (e.g., coral red) */
+}
+
+
+@media (max-width:600px) {
+  .bottom-nav{
+    display: flex;
+  }
+}

@@ -1,0 +1,241 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Profile Banner */
+.profile-banner {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner-content {
+    position: relative;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff3b30;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.create-post-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #4f66e1;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.create-post-btn img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Story Section */
+.story-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+    background-color: #f8f8f8;
+    overflow-x: auto;
+}
+
+.story {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    padding: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.story h4{
+    font-size: 12px;
+}
+.story-image{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    border: 3px solid #353434;
+   
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: top;
+
+}
+
+.add-to-story {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 50%;
+    display: none;
+}
+
+.story:hover .add-to-story {
+    display: block;
+}
+
+/* Posts Section */
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.post {
+    background-color: white;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-username {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.post-title {
+    font-size: 18px;
+    margin: 10px 15px;
+    font-weight: bold;
+}
+
+.post-description {
+    font-size: 14px;
+    color: #555;
+    padding: 0 15px 10px 15px;
+}
+
+.post-footer {
+    padding: 10px 15px;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.likes {
+    color: #e0245e;
+    font-weight: bold;
+}
+
+.post:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.post-header, .post-footer {
+    transition: background-color 0.3s ease;
+}
+
+.post:hover .post-header, .post:hover .post-footer {
+    background-color: #f1f1f1;
+}
+
+/* Back Home Button */
+.back-home-btn {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin: 10px;
+}
+
+.back-home-btn i{
+    margin: 0 10px;
+}
+
+.back-home-btn:hover {
+    background-color: #5f5d5a;
+}
+
+
+#delete{
+    color: red;
+}
+
+/* Mobile Design */
+@media (max-width:600px) {
+    .logout-btn {
+        position: absolute;
+        top: 5px;
+        right: 3px; 
+        background-color: #ff3b30;
+        padding: 8px 15px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+    }
+    
+}

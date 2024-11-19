@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Story</title>
+    <link rel="stylesheet" href="/stylesheets/saved.css">
+    <link rel="stylesheet" href="/stylesheets/menu.css">
+</head>
+<body>
+    <div class="add-story-container">
+        <h1 class="title">Add a New Story</h1>
+
+        <!-- Story Form -->
+        <form action="/Add-Story" method="post" class="story-form" id="addStoryForm">
+            <div class="form-group">
+                <label for="storyTitle">Story Title</label>
+                <input type="text" id="storyTitle" name="storyTitle" placeholder="Enter story title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="storyImage">Story Image</label>
+                <input type="text" id="storyImage" name="storyImage"  placeholder="Enter Story ImageURL" required>
+            </div>
+
+            <div class="form-group">
+                <label for="storyTags">Tags</label>
+                <input type="text" id="storyTags" name="storyTags" placeholder="Enter story tags (comma separated)" >
+            </div>
+            <button type="submit" class="submit-btn">Add Story</button>
+        </form>
+    </div>
+    <div class="bottom-nav">
+        <a href="/feed" class="nav-item">
+          <i class="fas fa-home"></i>
+        </a>
+    
+        <a href="#" class="nav-item">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="/create" class="nav-item">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+    
+       
+       
+        <a href="/Saved" class="nav-item">
+          <i class="fas fa-bookmark"></i>
+        </a>
+    
+        <a href="/profile" class="nav-item">
+          <img class="fa-user-circle" src="<%= user.image %>" alt="">
+        </a>
+        
+      </div>
+</body>
+</html>

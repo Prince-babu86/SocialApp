@@ -1,0 +1,372 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #070707;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+
+#user{
+    background-color: crimson;
+    padding: 8px 10px;
+    border-radius: 3px;
+}
+
+.navbar nav ul li a:hover {
+ 
+}
+
+/* Feed Section */
+.feed {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.post {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    align-items: center;
+}
+
+.profile-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+   
+}
+#username{
+    margin: 0 40px;
+}
+.profile-img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+.post-header .username {
+    font-size: 18px;
+    color: #2a3d66;
+}
+
+.post-header .post-title {
+    font-size: 20px;
+    color: #2a3d66;
+}
+
+.post-image {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.post-description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.post-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.like-btn, .save-btn {
+    background-color: #2a3d66;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.like-btn:hover, .save-btn:hover {
+    background-color: #1f2d46;
+}
+
+.like-btn:focus, .save-btn:focus {
+    outline: none;
+}
+
+
+/* General styles */
+
+.story-section {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+/* Story card container */
+.story {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+}
+.card-create{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border:3px solid rgb(41, 39, 39);
+    border-radius: 50%;
+
+}
+#allusers{
+    display: block;
+    margin: 0 20px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+}
+.fa-plus{
+    position: absolute;
+    bottom: 1%;
+    right: 1.2%;
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(177, 171, 171);
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.card-create img{
+   
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+
+
+}
+/* Circle around the image (progress circle) */
+.story-progress {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 4px solid #ddd; /* Grey background for non-active state */
+    animation: progress-animation 10s linear infinite;
+}
+
+/* Circle around the image while active */
+.story:hover .story-progress {
+    animation-play-state: running;
+}
+
+/* Circular images */
+.story-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(208, 31, 31);
+}
+
+/* Username label */
+.story-username {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+  text-align: center;
+  text-decoration: none;
+    
+}
+#save-btn{
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+#NoSaved{
+    padding: 20px;
+}
+#unsave-btn{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(104, 209, 38);
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+/* Hover effect on the profile image */
+.story:hover .story-img {
+    filter: brightness(85%);
+}
+
+
+
+.content {
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  
+/* Story hover animation */
+@keyframes progress-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .navbar{
+        display: none;
+    }
+    .navbar nav ul li {
+        display: none;
+    }
+
+    .card-create{
+        display: none;
+    }
+
+    #user{
+        display: flex;
+    }
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .feed {
+        padding: 10px;
+    }
+
+    .post-image {
+        max-width: 100%;
+    }
+
+    .post-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .post-header .username {
+        margin-bottom: 5px;
+    }
+
+    .post-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .like-btn, .save-btn {
+        margin-bottom: 10px;
+    }
+   
+    
+    .fa-plus{
+        position: absolute;
+        bottom: 1%;
+        right: 1.2%;
+        color: rgb(0, 0, 0);
+        font-size: 1.4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(177, 171, 171);
+        padding: 5px;
+        border-radius: 50%;
+    }
+    
+    .card-create img{
+       
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+    
+    }
+
+    .save-btn{
+        margin: 8px 0;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialApp Feed</title>
+    <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="/stylesheets/menu.css">
+</head>
+<body>
+
+  <div class="main">
+    <header class="navbar">
+        <div class="logo">SocialApp</div>
+        <nav>
+            <ul>
+                <li><a href="/feed">Home</a></li>
+                <li><a href="/Saved">Saved</a></li>
+                <li><a href="/create">Add Post</a></li>
+                <li id="user"><a href="/profile"><%= user.username %></a></li>
+            </ul>
+        </nav>
+    </header>
+
+<!--  Story section   -->
+<!-- <h1 id="allusers">All Users</h1> -->
+<div class="story-section">
+    
+  <a href="/Add-story" class="card-create">
+    <i class="fa-solid fa-plus"></i>
+   <img src="<%= user.image %>" alt="">
+  </a>
+  <% users.sort(()=> Math.random() - 0.5).forEach(function(elem){%>
+    <a href="/profile/<%= elem._id %>" class="story">
+        <!-- <div class="story-progress"></div> -->
+        <img src="<%=elem.image %>" alt="User 1" class="story-img">
+        <span class="story-username"><%= elem.username %></span>
+    </a>
+ <% }) %>
+   
+    
+</div>
+
+    <!-- Feed Section -->
+    <section class="feed">
+     <% post.sort(()=> Math.random() - 0.5).forEach(function(elem){%>
+        <div class="post">
+            <div class="post-header">
+                <div class="profile-img">
+                    <img src="<%= elem.user.image %>" alt="">
+                </div>
+                <a id="username" class="username">@<%= elem.user.username %></a>
+                <span class="post-title"><%= elem.title %></span>
+            </div>
+            <img src="<%= elem.postimage %>" alt="Post Image" class="post-image">
+            <p class="post-description"><%= elem.description %></p>
+            <div class="post-footer">
+             
+
+
+
+              <div>
+                <!-- Check if the post is saved by the logged-in user -->
+                <% if (user.savedpost.includes(elem._id.toString())) { %>
+                  <!-- If saved, show 'Unsave' button -->
+                  <form  action="/unsaved/<%=elem._id%>" method="post">
+                    <button id="unsave-btn" type="submit">Unsave</button>
+                  </form>
+                <% } else { %>
+                  <!-- If not saved, show 'Save' button -->
+                  <form action="/saved/<%=elem._id%>" method="post">
+                    <button id="save-btn" type="submit">Save</button>
+                  </form>
+                <% } %>
+              </div>
+
+                <a href="/pin/<%= elem._id %>" class="save-btn">View</a>
+            </div>
+        </div>
+     <%}) %>
+
+        <!-- More Posts can be added here -->
+    </section>
+  </div>
+   
+  <div class="bottom-nav">
+    <a href="/feed" class="nav-item">
+      <i class="fas fa-home"></i>
+    </a>
+
+    <a href="#" class="nav-item">
+      <i class="fas fa-search"></i>
+    </a>
+    <a href="/create" class="nav-item">
+      <i class="fas fa-plus-circle"></i>
+    </a>
+
+   
+   
+    <a href="/Saved" class="nav-item">
+      <i class="fas fa-bookmark"></i>
+    </a>
+
+    <a href="/profile" class="nav-item">
+      <img class="fa-user-circle" src="<%= user.image %>" alt="">
+    </a>
+    
+  </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

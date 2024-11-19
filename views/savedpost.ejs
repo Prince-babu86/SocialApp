@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/feed.css">
+    <link rel="stylesheet" href="/stylesheets/menu.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">SocialApp</div>
+        <nav>
+            <ul>
+                <li><a href="/feed">Home</a></li>
+                <li><a href="/Saved">Saved</a></li>
+                <li><a href="/create">Add Post</a></li>
+                <li id="user"><a href="/profile"><%= user.username %></a></li>
+            </ul>
+        </nav>
+    </header>
+    <% if(user.savedpost.length > 0 ){%>
+<div class="posts">
+        <% user.savedpost.reverse().forEach(function(elem){%>
+        <a href="/pin/<%= elem._id %>" class="post">
+          <div class="post-header">
+            <img src="<%= user.image %>" alt="User Avatar" class="post-avatar" />
+            <h3 class="post-username"><%= user.username %></h3>
+          </div>
+          <img src="<%= elem.postimage %>" alt="Post Image" class="post-img" />
+          <h4 class="post-title"><%= elem.title %></h4>
+          <p class="post-description"><%=elem.description %></p>
+          <div class="post-footer">
+            <span class="likes">❤️ 120 Likes</span>
+          </div>
+        </a>
+        <%}) %>
+  
+        <!-- More posts can go here -->
+      </div>
+   <% } else {%>
+    <h1 id="NoSaved">No Saved Post here</h1>
+   <%} %>
+
+
+
+   <div class="bottom-nav">
+    <a href="/feed" class="nav-item">
+      <i class="fas fa-home"></i>
+    </a>
+
+    <a href="#" class="nav-item">
+      <i class="fas fa-search"></i>
+    </a>
+    <a href="/create" class="nav-item">
+      <i class="fas fa-plus-circle"></i>
+    </a>
+
+   
+   
+    <a href="/Saved" class="nav-item">
+      <i class="fas fa-bookmark"></i>
+    </a>
+
+    <a href="/profile" class="nav-item">
+      <img class="fa-user-circle" src="<%= user.image %>" alt="">
+    </a>
+    
+  </div>
+</body>
+</html>
